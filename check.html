@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="..\node_modules\material-design-icons\iconfont\material-icons.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" type="image/ico" href="img/15682.png" />
+    <title>Document</title>
+</head>
+<style>
+    .nav-wrapper {
+        background-color: #343A40;
+        margin-bottom: 30px;
+    }
+
+    #loading,
+    #result {
+        display: none;
+    }
+
+    .text-black {
+        display: block;
+        padding-top: 5px;
+    }
+
+    img {
+        height: 121px;
+        width: 121px;
+    }
+
+    #answer {
+        font-weight: 500;
+        font-size: 3rem;;
+        font-family: Arial, Helvetica, sans-serif;
+        border: 3px solid grey;
+    }
+
+    #match-box {
+        font-weight: bold;
+        font-size: 1rem;
+        color: yellowgreen;
+
+    }
+</style>
+
+<body>
+    <header>
+        <nav class="nav-wrapper">
+            <div class="container">
+                <a href="" class="brand-logo">Test Check</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="card" id="main">
+            <div class="card-content">
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="alert-box" id="alert"></div>
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input id="first_name" type="text" class="validate">
+                                <label for="first_name">First Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input id="second_name" type="text" class="validate">
+                                <label for="second_name">Seco Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">mode_edit</i>
+                                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                <label for="textarea1">Textarea</label>
+                            </div>
+
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">mode_edit</i>
+                                <textarea id="textarea2" class="materialize-textarea"></textarea>
+                                <label for="textarea1">Textarea</label>
+                            </div>
+                        </div>
+                        <div class="row center">
+                            <div class="col s12">
+                                <input onclick="checkMatch()" id="submit" class="btn btn" type="button"
+                                    value="check similarity">
+                            </div>
+                            <div class="container">
+                                <label style='float: center;'>
+                                    <a class='gray-text' href='/index.html'><b>Log Out</b></a>
+                                </label>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="container">
+                        <div id="loading" class="row">
+                            <div class="col s12 center-align">
+                                <img src="img/loading.gif" alt="">
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <center>
+                        <div id="result" class="row">
+                            <div id="answer">0%</div>
+                            <h3>Matched words</h3>
+                            <div id="match-box"></div>
+                        </div>
+                    </center>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    </div>
+
+
+    <script src="./app.js"></script>
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/materialize.min.js"></script>
+</body>
+
+</html>
