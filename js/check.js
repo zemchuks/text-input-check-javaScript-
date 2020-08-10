@@ -1,4 +1,5 @@
 try {
+    //show the loader on click and run the checkMatch function
     document.querySelector('#submit').addEventListener('click', function (e) {
 
         // Hide results
@@ -24,12 +25,14 @@ function checkMatch() {
 
     if (firstInput === '' || secondInput === '') {
       
-        return showError('Please provide an input in both text boxes', 'error')
+        return showError('Provide an input in both text Boxes', 'error')
     }
 
+    //remove white spaces and make all characters lower case
     let str1 = firstInput.replace(/\s+/g, ' ').trim().toLocaleLowerCase().split(' ')
     let str2 = secondInput.replace(/\s+/g, ' ').trim().toLocaleLowerCase().split(' ')
 
+    //add string 1 and 2 together
     let totalSimilarWord = new Set(str1.concat(str2)),
         percentage = 0,
         totalMatch = new Set()
@@ -63,7 +66,7 @@ function checkMatch() {
 }
 
 
-//Show
+//Show error function
 function showError(msg, className) {
     const alertBox = document.querySelector('#alert')
     alertBox.classList.add("show", `${className}`);
@@ -76,19 +79,3 @@ function showError(msg, className) {
     //hide loader
     document.querySelector('#loading').style.display = 'none'
 }
-
-
-// function validateLogin() {
-//     const reEmail = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/i
-//     const rePassword = /^[a-zA-Z]\w{3,14}$/i
-
-//     const email = document.getElementById('email')
-//     const password = document.getElementById('password')
-
-//     if (!reEmail.test(email.value) || !rePassword.test(password)) {
-//         document.getElementById("login").disabled = true;
-//     } else {
-//         document.getElementById("login").disabled = false;
-//     }
-
-// }
