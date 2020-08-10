@@ -35,7 +35,8 @@
 
     #answer {
         font-weight: 500;
-        font-size: 3rem;;
+        font-size: 3rem;
+        ;
         font-family: Arial, Helvetica, sans-serif;
         border: 3px solid grey;
     }
@@ -63,6 +64,7 @@
                 <div class="row">
                     <form class="col s12">
                         <div class="row">
+                            <h5 class="grey-text center">Fill all the text areas to Proceed</h5>
                             <div class="alert-box" id="alert"></div>
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">account_circle</i>
@@ -76,13 +78,15 @@
                             </div>
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">mode_edit</i>
-                                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                <textarea id="textarea1" placeholder="Placeholder"
+                                    class="materialize-textarea"></textarea>
                                 <label for="textarea1">Textarea</label>
                             </div>
 
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">mode_edit</i>
-                                <textarea id="textarea2" class="materialize-textarea"></textarea>
+                                <textarea id="textarea2" placeholder="Placeholder"
+                                    class="materialize-textarea"></textarea>
                                 <label for="textarea1">Textarea</label>
                             </div>
                         </div>
@@ -124,9 +128,10 @@
     </div>
 
 
-    <script src="./app.js"></script>
     <script src="js/jquery-3.4.1.js"></script>
     <script src="js/materialize.min.js"></script>
+    <script src="js/check.js"></script>
+
 </body>
 
 </html>

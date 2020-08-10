@@ -1,11 +1,11 @@
 try {
-    document.getElementById('submit').addEventListener('click', function (e) {
+    document.querySelector('#submit').addEventListener('click', function (e) {
 
         // Hide results
-        document.getElementById('result').style.display = 'none'
+        document.querySelector('#result').style.display = 'none'
 
         //show loader
-        document.getElementById('loading').style.display = 'block'
+        document.querySelector('#loading').style.display = 'block'
         setTimeout(checkMatch, 1000)
 
         e.preventDefault()
@@ -17,10 +17,15 @@ try {
 
 function checkMatch() {
 
-    const firstInput = document.getElementById('textarea1').value,
-        secondInput = document.getElementById('textarea2').value,
-        answer = document.getElementById('answer'),
-        matchBox = document.getElementById('match-box')
+    const firstInput = document.querySelector('#textarea1').value,
+        secondInput = document.querySelector('#textarea2').value,
+        answer = document.querySelector('#answer'),
+        matchBox = document.querySelector('#match-box')
+
+    if (firstInput === '' || secondInput === '') {
+      
+        return showError('Please provide an input in both text boxes', 'error')
+    }
 
     let str1 = firstInput.replace(/\s+/g, ' ').trim().toLocaleLowerCase().split(' ')
     let str2 = secondInput.replace(/\s+/g, ' ').trim().toLocaleLowerCase().split(' ')
@@ -34,50 +39,43 @@ function checkMatch() {
             totalMatch.add(word)
             matchBox.innerHTML = 'words match'
             //show result
-            document.getElementById('result').style.display = 'block'
+            document.querySelector('#result').style.display = 'block'
             //hide loader
-            document.getElementById('loading').style.display = 'none'
+            document.querySelector('#loading').style.display = 'none'
+
+            percentage = Math.round((totalMatch.size / totalSimilarWord.size) * 100)
+
+            answer.innerText = percentage + '%'
+
+            matchBox.innerText = Array.from(totalMatch)
         } else {
-            matchBox.innerHTML = 'words dont match'
+            //hide result
+            document.querySelector('#result').style.display = 'block'
+            //hide loader
+            document.querySelector('#loading').style.display = 'none'
+            answer.innerText = ''
+            matchBox.innerText = "There is no match!"
         }
-        if (firstInput === '' || secondInput === '') {
-            return showError('Please provide an input', 'error')
-        }
+
     }
 
-    percentage = Math.round((totalMatch.size / totalSimilarWord.size) * 100)
 
-    answer.innerText = percentage + '%'
-
-    matchBox.innerText = Array.from(totalMatch)
 }
 
 
+//Show
 function showError(msg, className) {
     const alertBox = document.querySelector('#alert')
     alertBox.classList.add("show", `${className}`);
     alertBox.textContent = `${msg}`;
     setTimeout(() => {
         alertBox.classList.remove("show", `${className}`);
-    }, 2000);
+    }, 3000);
     //hide result
-    document.getElementById('result').style.display = 'none'
+    document.querySelector('#result').style.display = 'none'
     //hide loader
-    document.getElementById('loading').style.display = 'none'
+    document.querySelector('#loading').style.display = 'none'
 }
-
-
-
-// function validateLogin() {
-//     const email = document.getElementById('email')
-//      const password = document.getElementById('password')
-
-//      if (email == '' || email == null) {
-//         return showError('please provide', 'error')
-//      } else if (password == '' || password == null){
-//         return showError('Password must be at least 8 characters long', 'error')
-//      }
-// }
 
 
 // function validateLogin() {
