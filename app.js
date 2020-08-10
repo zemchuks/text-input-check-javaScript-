@@ -1,15 +1,19 @@
+try {
+    document.getElementById('submit').addEventListener('click', function (e) {
 
-document.getElementById('submit').addEventListener('click', (e) => {
+        // Hide results
+        document.getElementById('result').style.display = 'none'
 
-    // Hide results
-    document.getElementById('result').style.display = 'none'
+        //show loader
+        document.getElementById('loading').style.display = 'block'
+        setTimeout(checkMatch, 1000)
 
-    //show loader
-    document.getElementById('loading').style.display = 'block'
-    setTimeout(checkMatch, 1000)
+        e.preventDefault()
+    })
+} catch (error) {
+    console.log(error);
+}
 
-    e.preventDefault()
-})
 
 function checkMatch() {
 
@@ -46,8 +50,8 @@ function checkMatch() {
     answer.innerText = percentage + '%'
 
     matchBox.innerText = Array.from(totalMatch)
-
 }
+
 
 function showError(msg, className) {
     const alertBox = document.querySelector('#alert')
@@ -61,6 +65,8 @@ function showError(msg, className) {
     //hide loader
     document.getElementById('loading').style.display = 'none'
 }
+
+
 
 // function validateLogin() {
 //     const email = document.getElementById('email')
