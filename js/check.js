@@ -24,11 +24,10 @@ function checkMatch() {
         matchBox = document.querySelector('#match-box')
 
     if (firstInput === '' || secondInput === '') {
-      
         return showError('Provide an input in both text Boxes', 'error')
     }
 
-    //remove white spaces and make all characters lower case
+    //remove white spaces with.trim() and make all characters lower case
     let str1 = firstInput.replace(/\s+/g, ' ').trim().toLocaleLowerCase().split(' ')
     let str2 = secondInput.replace(/\s+/g, ' ').trim().toLocaleLowerCase().split(' ')
 
@@ -61,8 +60,6 @@ function checkMatch() {
         }
 
     }
-
-
 }
 
 
