@@ -6,13 +6,19 @@
 
 # Test Check App
 
-Test check can now make easy the way you screen your students.
-You can closely monitor how your students write their tests.
+- Test check can now make easy the way you screen your students.
+- You can closely monitor how your students write their tests.
+- Light-weight and simple interface
 
 # How to Use
 
 ```bash
 select the 'clone' button
+```
+
+Install material-design-icons
+```bash
+npm install material-design-icons
 ```
 
 Copy the URL
