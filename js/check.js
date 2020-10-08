@@ -1,5 +1,5 @@
-try {
-    //show the loader on click and run the checkMatch function
+
+        //show the loader on click and run the checkMatch function
     document.querySelector('#submit').addEventListener('click', function (e) {
 
         // Hide results
@@ -11,9 +11,6 @@ try {
 
         e.preventDefault()
     })
-} catch (error) {
-    console.log(error);
-}
 
 
 function checkMatch() {
@@ -39,29 +36,32 @@ function checkMatch() {
     for (word of str1) {
         if (str2.includes(word)) {
             totalMatch.add(word)
-            matchBox.innerHTML = 'words match'
-            //show result
-            document.querySelector('#result').style.display = 'block'
-            //hide loader
-            document.querySelector('#loading').style.display = 'none'
-
-            percentage = Math.round((totalMatch.size / totalSimilarWord.size) * 100)
-
-            answer.innerText = percentage + '%'
-
-            matchBox.innerText = Array.from(totalMatch)
-        } else {
-            //hide result
-            document.querySelector('#result').style.display = 'block'
-            //hide loader
-            document.querySelector('#loading').style.display = 'none'
-            answer.innerText = ''
-            matchBox.innerText = "There is no match!"
         }
+    }
+    if(Array.from(totalMatch).length > 0){
+        matchBox.innerText = Array.from(totalMatch)
+        document.querySelector('#result').style.display = 'block'
+        //hide loader
+        document.querySelector('#loading').style.display = 'none'
 
+        percentage = Math.round((totalMatch.size / totalSimilarWord.size) * 100)
+
+        answer.innerText = percentage + '%'
+
+        console.log(Array.from(totalMatch))
+        console.log("should show percent")
+    }else{
+        //hide result
+        document.querySelector('#result').style.display = 'block'
+        //hide loader
+        document.querySelector('#loading').style.display = 'none'
+        answer.innerText = ''
+        
+        console.log("should not show percent")
+
+        matchBox.innerText = "There is no match!"
     }
 }
-
 
 //Show error function
 function showError(msg, className) {
